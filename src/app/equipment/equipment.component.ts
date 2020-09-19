@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { EquipmentData as equipmentFallback } from "../backend-interceptor/EquipmentData";
-import { AccordionComponent } from "../accordion/accordion.component";
-import { AccordionPanelComponent } from "../accordion-panel/accordion-panel.component";
+import { Equipment } from "../equipment";
+import { EquipmentService } from "../equipment.service";
 
 @Component({
     selector: "app-equipment",
@@ -9,9 +8,17 @@ import { AccordionPanelComponent } from "../accordion-panel/accordion-panel.comp
     styleUrls: ["./equipment.component.css"],
 })
 export class EquipmentComponent implements OnInit {
-    equipment = equipmentFallback.array;
+    equipment: Equipment[];
 
-    constructor() {}
+    getEquipment(): void {
+        this.equipmentService
+            .getEquipment()
+            .subscribe((equipment) => (this.equipment = equipment));
+    }
 
-    ngOnInit() {}
+    constructor(private equipmentService: EquipmentService) {}
+
+    ngOnInit() {
+        this.getEquipment();
+    }
 }

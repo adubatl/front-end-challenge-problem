@@ -8,11 +8,18 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { BackendInterceptor } from "./backend-interceptor/BackendInterceptor";
 import { HomeComponent } from "./home/home.component";
 import { EquipmentComponent } from "./equipment/equipment.component";
-import { AccordionComponent } from './accordion/accordion.component';
-import { AccordionPanelComponent } from './accordion-panel/accordion-panel.component';
+import { AccordionComponent } from "./accordion/accordion.component";
+import { AccordionPanelComponent } from "./accordion-panel/accordion-panel.component";
 
 @NgModule({
-    declarations: [AppComponent, HomeComponent, EquipmentComponent, AccordionComponent, AccordionPanelComponent],
+    declarations: [
+        AppComponent,
+        HomeComponent,
+        EquipmentComponent,
+        AccordionComponent,
+        AccordionPanelComponent,
+        MessagesComponent,
+    ],
     imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
     providers: [
         // Leverage a bogus backend so we don't have to stand something up somewhere on the internet.
