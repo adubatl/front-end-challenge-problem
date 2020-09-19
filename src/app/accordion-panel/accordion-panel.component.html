@@ -5,18 +5,40 @@
     (click)="toggle.emit()"
 >
     <div class="collapsed" (click)="toggle.emit()">
-        {{ item.description || "No Description" }}
+        <div class="inpho">
+            <img
+                *ngIf="item.equipment_photos && item.equipment_photos[0]"
+                src="{{ item.equipment_photos[0].thumbnail_url }}"
+            />
+            <span *ngIf="!(item.equipment_photos && item.equipment_photos[0])"
+                >:^(</span
+            >
+        </div>
+        <div class="info">
+            <span>{{ item.description || "No Description" }}</span>
+            <!-- I realize this will never be in this dataset but your image has it -->
+            <div>
+                <span class="locationTag">{{
+                    item.location || "Kitchen"
+                }}</span>
+                <span class="manufacturerTag">
+                    {{ item.manufacturer || "Kitchen" }}
+                </span>
+            </div>
+        </div>
+        <!-- This is a trashcan for sure -->
+        <div class="delete">[ X ]</div>
     </div>
     <div class="expanded" [ngClass]="{ hidden: !opened }">
         <span>Manufacturer: {{ item.manufacturer }}</span>
         <span>Model No: {{ item.model_number }}</span>
         <span>Serial No: {{ item.serial_number }}</span>
         <span>Type: {{ item.equipment_type }}</span>
-        <span
-            >Photos:
-            {{
-                item.equipment_photos ? item.equipment_photos[0] : "NO PHOTOS"
-            }}</span
-        >
+        <!-- hacky typeof check since idk best practice for typeof in angular template -->
+        <div *ngIf="item.equipment_photos && item.equipment_photos.length">
+            <ng-container *ngFor="let photo of item.equipment_photos">
+                <img src="{{ photo.full_size_url }}" />
+            </ng-container>
+        </div>
     </div>
 </div>
