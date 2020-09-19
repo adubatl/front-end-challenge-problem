@@ -1,0 +1,16 @@
+<h2>My Equipment</h2>
+
+<div>
+    <label
+        >Equipment manufacturer:
+        <input #equipmentName />
+    </label>
+</div>
+
+<ul class="equipment">
+    <li *ngFor="let equipment of equipment">
+        <a routerLink="/detail/{{ equipment.serial_number }}">
+            {{ equipment.manufacturer }}
+        </a>
+    </li>
+</ul>
