@@ -1,0 +1,22 @@
+<div
+    *ngIf="item.active"
+    class="accordion-panel"
+    [ngClass]="{ incomplete: !item.manufacturer || !item.equipment_type }"
+    (click)="toggle.emit()"
+>
+    <div class="collapsed" (click)="toggle.emit()">
+        {{ item.description || "No Description" }}
+    </div>
+    <div class="expanded" [ngClass]="{ hidden: !opened }">
+        <span>Manufacturer: {{ item.manufacturer }}</span>
+        <span>Model No: {{ item.model_number }}</span>
+        <span>Serial No: {{ item.serial_number }}</span>
+        <span>Type: {{ item.equipment_type }}</span>
+        <span
+            >Photos:
+            {{
+                item.equipment_photos ? item.equipment_photos[0] : "NO PHOTOS"
+            }}</span
+        >
+    </div>
+</div>

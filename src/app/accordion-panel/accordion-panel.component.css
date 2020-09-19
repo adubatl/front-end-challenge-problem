@@ -1,0 +1,19 @@
+.accordion-panel {
+    border: 2px solid darkgray;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+}
+
+.accordion-panel .collapsed {
+    display: flex;
+    width: 100%;
+}
+
+.accordion-panel.incomplete {
+    background-color: goldenrod;
+}
+
+.accordion-panel .expanded.hidden {
+    display: none;
+}

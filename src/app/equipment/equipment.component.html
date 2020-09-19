@@ -1,11 +1,7 @@
 <h2>The Yeasty Bois Equipment</h2>
-<div class="flex-list">
-    <div class="tile" *ngFor="let item of equipment">
-        <span>Active: {{ item.active }}</span>
-        <span>Manufacturer: {{ item.manufacturer }}</span>
-        <span>Model No: {{ item.model_number }}</span>
-        <span>Serial No: {{ item.serial_number }}</span>
-        <span>Type: {{ item.equipment_type }}</span>
-        <span>Photos: {{ item.equipment_photos[0] || "NO PHOTOS" }}</span>
-    </div>
-</div>
+<app-accordion>
+    <app-accordion-panel
+        [item]="item"
+        *ngFor="let item of equipment"
+    ></app-accordion-panel>
+</app-accordion>
