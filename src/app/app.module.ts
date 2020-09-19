@@ -18,7 +18,6 @@ import { AccordionPanelComponent } from "./accordion-panel/accordion-panel.compo
         EquipmentComponent,
         AccordionComponent,
         AccordionPanelComponent,
-        MessagesComponent,
     ],
     imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
     providers: [
