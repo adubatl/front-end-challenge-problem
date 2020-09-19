@@ -11,9 +11,12 @@ import { catchError, map, tap } from "rxjs/operators";
 export class EquipmentService {
     private equipUrl = `${environment.apiUrl}/equipment`;
     private handleError<T>(operation = "operation", result?: T) {
-        return (error: any): Observable<T> => {
+        return (error: any): Observable<T | any[]> => {
             console.error(error);
-            return of(result as T);
+            console.log(result, operation);
+            // lazily return a hardcoded object in error case to show
+            // a nice message
+            return of([{ error: "bootsnakes" }]);
         };
     }
     getEquipment(): Observable<Equipment[]> {

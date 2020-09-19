@@ -1,5 +1,15 @@
 <h2>The Yeasty Bois Equipment</h2>
 <app-accordion>
+    <!-- <ng-container *ngIf="equipment && equipment[0].error === 'bootsnakes'">
+        <div class="errorContainer">
+            <span class="error"
+                >We're sorry! There isn't any equipment here. If you know there
+                should be, please check your connection and try again. If the
+                problem persists contact our
+                <a href="mailto:support@86repairs.com">support team</a>.
+            </span>
+        </div>
+    </ng-container> -->
     <app-accordion-panel
         [item]="item"
         *ngFor="let item of equipment"
