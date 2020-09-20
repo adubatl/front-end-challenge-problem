@@ -1,15 +1,16 @@
 <h2>The Yeasty Bois Equipment</h2>
-<app-accordion>
-    <!-- <ng-container *ngIf="equipment && equipment[0].error === 'bootsnakes'">
-        <div class="errorContainer">
-            <span class="error"
-                >We're sorry! There isn't any equipment here. If you know there
-                should be, please check your connection and try again. If the
-                problem persists contact our
-                <a href="mailto:support@86repairs.com">support team</a>.
-            </span>
-        </div>
-    </ng-container> -->
+<ng-container *ngIf="equipment && equipment[0].error === 'bootsnakes'">
+    <div class="errorContainer">
+        <span class="error"
+            >We're sorry! There isn't any equipment here. If you know there
+            should be, please check your connection and try again. If the
+            problem persists contact our
+            <a href="mailto:support@86repairs.com">support team</a>.
+        </span>
+    </div>
+</ng-container>
+<!-- something weird happens when fetching data in angular land and the click handler is broken unless i do this. my guess is its lifecycle method stuff I dont know about in angular or has to do with the returned observable -->
+<app-accordion *ngIf="equipment && equipment.length > 1">
     <app-accordion-panel
         [item]="item"
         *ngFor="let item of equipment"
